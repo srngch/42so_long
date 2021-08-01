@@ -6,7 +6,7 @@
 #    By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 01:47:18 by sarchoi           #+#    #+#              #
-#    Updated: 2021/08/02 03:52:34 by sarchoi          ###   ########.fr        #
+#    Updated: 2021/08/02 03:53:57 by sarchoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,15 +41,15 @@ $(NAME): $(OBJS) $(OBJS_MANDATORY)
 # make all -C $(LIBFT)
 	$(info $(red)******** NAME ********$(reset))
 	make -C $(MLX)
-	install_name_tool -change libmlx.dylib ./mlx/libmlx.dylib so_long
 	$(CC) $(CFLAGS) -o $(NAME) $^ -L ./mlx $(MLX_FLAGS)
+	install_name_tool -change libmlx.dylib ./mlx/libmlx.dylib so_long
 
 bonus: $(OBJS) $(OBJS_BONUS)
 	$(info $(red)******** bonus ********$(reset))
 # make all -C $(LIBFT)
 	make all -C $(MLX)
-	install_name_tool -change libmlx.dylib ./mlx/libmlx.dylib so_long
 	$(CC) $(CFLAGS) -o $(NAME) $^ -I $(MLX_FLAGS)
+	install_name_tool -change libmlx.dylib ./mlx/libmlx.dylib so_long
 
 %.o: %.c
 	$(info $(red)******** $(@) $(<) ********$(reset))
