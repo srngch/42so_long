@@ -31,6 +31,9 @@ $ make
 ## Usage
 
 ```shell
+$ so_long [map_filename]
+
+# example
 $ so_long maps/subject_minimal.ber
 ```
 
