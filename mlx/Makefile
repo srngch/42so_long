@@ -21,15 +21,13 @@ INC=-I.
 all: $(NAME)
 
 $(NAME): $(MODULE_OBJ) $(OBJ) $(C_OBJ)
-	@swiftc $(SWIFTCFLAGS) $(OPTI) $(INC) -o $(NAME) -emit-library $(OBJ) $(C_OBJ) -lz
-
-
+	swiftc $(SWIFTCFLAGS) $(OPTI) $(INC) -o $(NAME) -emit-library $(OBJ) $(C_OBJ) -lz
 
 %.o: %.swift
-	@swiftc $(SWIFTCFLAGS) $(OPTI) $(INC) -parse-as-library -c $< -o $@
+	swiftc $(SWIFTCFLAGS) $(OPTI) $(INC) -parse-as-library -c $< -o $@
 
 %.swiftmodule: %.swift
-	@swiftc $(SWIFTCFLAGS) $(OPTI) $(INC) -parse-as-library -c $< -o $@ -emit-module -module-name $(patsubst %.swift,%,$<) -module-link-name $(patsubst %.swift,%,$<)
+	swiftc $(SWIFTCFLAGS) $(OPTI) $(INC) -parse-as-library -c $< -o $@ -emit-module -module-name $(patsubst %.swift,%,$<) -module-link-name $(patsubst %.swift,%,$<)
 
 clean:
 	rm -f $(NAME) $(OBJ) $(MODULE_OBJ) $(C_OBJ) *.swiftdoc *~

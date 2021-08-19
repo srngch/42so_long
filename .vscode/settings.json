@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.erb": "erb",
+    "libft.h": "c",
+    "stdio.h": "c",
+    "so_long.h": "c"
+  }
+}

@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   sl_test.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/01 01:47:11 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/08/02 03:38:19 by sarchoi          ###   ########.fr       */
+/*   Created: 2021/08/20 03:10:06 by sarchoi           #+#    #+#             */
+/*   Updated: 2021/08/20 03:10:07 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SL_TEST_H
+# define SL_TEST_H
 
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
+# include "so_long.h"
+# include "sl_map.h"
 
-# include "mlx.h"
-
-# define FT_SUCCESS	1
-# define FT_ERROR	-1
-# define FT_EOF		0
-# define FT_TRUE	1
-# define FT_FALSE	0
+// for TEST
+void	sl_print_map(t_map *map);
 
 #endif
