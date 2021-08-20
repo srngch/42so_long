@@ -6,7 +6,7 @@
 #    By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 01:47:18 by sarchoi           #+#    #+#              #
-#    Updated: 2021/08/14 20:40:25 by sarchoi          ###   ########.fr        #
+#    Updated: 2021/08/20 19:47:20 by sarchoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,8 +70,6 @@ bonus: $(OBJS) $(OBJS_BONUS)
 	$(info $(green)******** bonus ********$(reset))
 	$(CC) $(CFLAGS) -o $(NAME) $^ $(LIBFT_FLAGS) $(MLX_FLAGS)
 	install_name_tool -change libmlx.dylib ./mlx/libmlx.dylib so_long
-
-
 
 clean:
 	$(info $(green)******** clean ********$(reset))

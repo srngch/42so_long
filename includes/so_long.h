@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 01:47:11 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/08/20 03:02:32 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/08/21 04:59:38 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,23 @@
 # define FT_FALSE		0
 # define BUFFER_SIZE	50
 
-int	sl_exit_with_error(char *message);
+typedef struct s_point
+{
+	int	xpos;
+	int	ypos;
+}				t_point;
+
+typedef struct s_state
+{
+	void	*mlx;
+	void	*win;
+	t_point	player_pos;
+}				t_state;
+
+void	sl_exit(t_state *state);
+
+int		sl_exit_with_error(char *message);
+
+int		key_hook(int keycode, t_state *state);
 
 #endif

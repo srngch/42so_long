@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_test.h                                          :+:      :+:    :+:   */
+/*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 03:10:06 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/08/21 03:33:43 by sarchoi          ###   ########.fr       */
+/*   Created: 2021/08/20 19:42:35 by sarchoi           #+#    #+#             */
+/*   Updated: 2021/08/21 03:37:23 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SL_TEST_H
-# define SL_TEST_H
+#include "so_long.h"
+#include "sl_input.h"
 
-# include "so_long.h"
-# include "sl_map.h"
+int	key_hook(int keycode, t_state *state)
+{
+	if (keycode == KEY_W)
+		state->player_pos.xpos++;
+	else if (keycode == KEY_S)
+		state->player_pos.xpos--;
+	else if (keycode == KEY_ESC)
+		sl_exit(state);
+	printf("x: %d\n", state->player_pos.xpos);
+	return (0);
+}
 
-// for TEST
-void	sl_print_map_raw(t_map *map);
-void	sl_print_map_array(t_map *map);
-
-#endif
+// mouse_hook(int button, int x, int y, void *param);

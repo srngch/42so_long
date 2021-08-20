@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_test.h                                          :+:      :+:    :+:   */
+/*   states.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 03:10:06 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/08/21 03:33:43 by sarchoi          ###   ########.fr       */
+/*   Created: 2021/08/20 19:25:42 by sarchoi           #+#    #+#             */
+/*   Updated: 2021/08/20 23:51:48 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SL_TEST_H
-# define SL_TEST_H
+#include "so_long.h"
 
-# include "so_long.h"
-# include "sl_map.h"
+void	sl_exit(t_state *state)
+{
+	mlx_destroy_window(state->mlx, state->win);
+	ft_putstr_fd("[SYSTEM] Exit. So Long.", STDIN_FILENO);
+	exit(EXIT_SUCCESS);
+}
 
-// for TEST
-void	sl_print_map_raw(t_map *map);
-void	sl_print_map_array(t_map *map);
+// void	loop_hook(void *param)
+// {
 
-#endif
+// }
+
+// expose_hook(void *param);

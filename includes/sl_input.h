@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sl_test.h                                          :+:      :+:    :+:   */
+/*   sl_input.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/20 03:10:06 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/08/21 03:33:43 by sarchoi          ###   ########.fr       */
+/*   Created: 2021/08/20 19:04:54 by sarchoi           #+#    #+#             */
+/*   Updated: 2021/08/20 19:20:53 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SL_TEST_H
-# define SL_TEST_H
+#ifndef SL_INPUT_H
+# define SL_INPUT_H
 
-# include "so_long.h"
-# include "sl_map.h"
-
-// for TEST
-void	sl_print_map_raw(t_map *map);
-void	sl_print_map_array(t_map *map);
+# define KEY_ESC		53
+// # define KEY_Q			12
+// # define KEY_E			14
+// # define KEY_R			15
+# define KEY_W			13
+# define KEY_A			0
+# define KEY_S			1
+# define KEY_D			2
 
 #endif
