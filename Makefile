@@ -6,7 +6,7 @@
 #    By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 01:47:18 by sarchoi           #+#    #+#              #
-#    Updated: 2021/08/20 19:47:20 by sarchoi          ###   ########.fr        #
+#    Updated: 2021/08/26 02:58:16 by sarchoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,9 +44,9 @@ test: all
 # $(info $(green)***********************$(reset))
 # ./$(NAME) maps/subject_minimal.txt
 
-debug: $(OBJS) $(OBJS_MANDATORY)
+debug: $(SRCS) $(SRCS_MANDATORY)
 	$(info $(green)******** debug ********$(reset))
-	$(CC) $(CFLAGS) -g -o $(NAME) $^ $(LIBFT_FLAGS) $(MLX_FLAGS) -I includes -I $(MLX) -I $(LIBFT)
+	$(CC) $(CFLAGS) -g $^ -o $(NAME) $(LIBFT_FLAGS) $(MLX_FLAGS) -I includes -I $(MLX) -I $(LIBFT)
 	install_name_tool -change libmlx.dylib $(CURDIR)/mlx/libmlx.dylib so_long
 
 $(LIBFT):

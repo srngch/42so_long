@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 03:09:49 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/08/21 03:47:46 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/08 02:08:06 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,10 @@
 
 int	sl_get_map_height(t_map *map)
 {
-	int		map_height;
-
-	map_height = ft_lstsize(map->raw);
-	return (map_height);
+	return (ft_lstsize(map->raw));
 }
 
-int	is_char_map_letter(char c)
+t_bool	is_char_map_letter(char c)
 {
 	if (c == MAP_EMPTY
 		|| c == MAP_WALL
@@ -32,7 +29,7 @@ int	is_char_map_letter(char c)
 	return (FT_FALSE);
 }
 
-int	is_str_map_wall(char *str)
+t_bool	is_str_map_wall(char *str)
 {
 	while (*str)
 	{
@@ -43,7 +40,7 @@ int	is_str_map_wall(char *str)
 	return (FT_TRUE);
 }
 
-int	is_char_in_map(t_map *map, char c)
+t_bool	is_char_in_map(t_map *map, char c)
 {
 	t_list	*raw_p;
 	char	*temp_content;

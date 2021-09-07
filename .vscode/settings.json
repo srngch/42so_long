@@ -3,6 +3,10 @@
     "*.erb": "erb",
     "libft.h": "c",
     "stdio.h": "c",
-    "so_long.h": "c"
+    "so_long.h": "c",
+    "sl_map.h": "c",
+    "stdlib.h": "c",
+    "__tuple": "c",
+    "array": "c"
   }
 }

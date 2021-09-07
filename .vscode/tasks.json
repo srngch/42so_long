@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "cppbuild",
+      "label": "C: gcc build active file - So Long",
+      "command": "/usr/bin/gcc",
+      "args": [
+        "-g",
+        "${file}",
+        // "${fileDirname}/srcs",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}",
+        // "-I",
+        // "${workspaceFolder}",
+        "-I",
+        "${fileDirname}/includes",
+        "-I",
+        "${fileDirname}/mlx",
+        "-I",
+        "${fileDirname}/libft"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": "build",
+      "detail": "compiler: /usr/bin/gcc"
+    },
+    {
+      "label": "EXE",
+      "type": "shell",
+      "command": "${fileDirname}/${fileBasenameNoExtension}",
+      "group": "build",
+      "args": ["maps/subject_minimal.ber"],
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}

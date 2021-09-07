@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 03:09:54 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/08/21 04:40:27 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/08 04:01:26 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,19 @@ void	sl_print_map_raw(t_map *map)
 
 void	sl_print_map_array(t_map *map)
 {
-	char	**array;
+	int		x;
+	int		y;
 
-	array = map->array;
-	while (*array)
+	y = 0;
+	while (y < map->height)
 	{
-		while (**array)
+		x = 0;
+		while (x < map->width)
 		{
-			printf("%c ", **array);
-			(*array)++;
+			printf("%c ", map->array[y][x]);
+			x++;
 		}
-		printf("[LINE END]\n");
-		array++;
+		printf("[LINE END](%d)\n", y);
+		y++;
 	}
 }

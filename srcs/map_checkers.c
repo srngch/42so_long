@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 03:09:46 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/08/21 03:47:56 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/08/26 03:13:05 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	sl_check_map_rectangular(t_map	*map)
 	t_list	*raw_p;
 	int		temp_content_width;
 
-	if (sl_get_map_height(map) < 3)
+	map->height = sl_get_map_height(map);
+	if (map->height < 3)
 		return (FT_ERROR);
 	raw_p = map->raw;
 	while (raw_p != NULL)

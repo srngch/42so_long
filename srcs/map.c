@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 03:09:36 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/08/21 04:15:43 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/08 04:00:27 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,47 @@ The map must contain a starting point, exit, and collection.");
 void	sl_raw_to_array_map(t_map *map)
 {
 	t_list	*raw_p;
-	char	*temp_content;
 	int		i;
 
 	raw_p = map->raw;
 	map->array = (char **)malloc(sizeof(char *) * map->height);
 	i = 0;
-	while (raw_p != NULL)
+	while (i < map->height)
 	{
-		*(map->array + i) = (char *)malloc(sizeof(char) * (map->width + 1));
-		temp_content = raw_p->content;
-		*(map->array + i) = temp_content;
-		printf("temp_content: %s\n", temp_content);
+		*((map->array) + i) = (char *)raw_p->content;
+		printf("arr(%d): %s\n", i, *((map->array) + i));
 		i++;
 		raw_p = raw_p->next;
 	}
 }
 
 // TODO: sl_draw_map
+
+void	sl_organize_map(t_map *map)
+{
+	int		x;
+	int		y;
+	t_bool	found_player;
+	t_bool	found_exit;
+
+	found_player = FT_FALSE;
+	found_exit = FT_FALSE;
+	y = 0;
+	while (y < map->height)
+	{
+		x = 0;
+		while (x < map->width)
+		{
+			if (found_player == FT_FALSE && map->array[y][x] == MAP_PLAYER)
+				found_player = FT_TRUE;
+			else if (found_exit == FT_FALSE && map->array[y][x] == MAP_EXIT)
+				found_exit = FT_TRUE;
+			else if (found_player == FT_TRUE && map->array[y][x] == MAP_PLAYER)
+				map->array[y][x] = MAP_EMPTY;
+			else if (found_exit == FT_TRUE && map->array[y][x] == MAP_EXIT)
+				map->array[y][x] = MAP_EMPTY;
+			x++;
+		}
+		y++;
+	}
+}
