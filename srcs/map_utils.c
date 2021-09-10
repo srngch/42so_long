@@ -6,24 +6,28 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 03:09:49 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/08 02:08:06 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/11 04:49:29 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "sl_map.h"
 
 int	sl_get_map_height(t_map *map)
 {
 	return (ft_lstsize(map->raw));
 }
 
+char	sl_get_char_pos(t_sl *sl, t_point pos)
+{
+	return (sl->map.array[pos.ypos][pos.xpos]);
+}
+
 t_bool	is_char_map_letter(char c)
 {
-	if (c == MAP_EMPTY
-		|| c == MAP_WALL
-		|| c == MAP_COLLECT
-		|| c == MAP_EXIT
+	if (c == MAP_EMPTY \
+		|| c == MAP_WALL \
+		|| c == MAP_COLLECT \
+		|| c == MAP_EXIT \
 		|| c == MAP_PLAYER)
 		return (FT_TRUE);
 	return (FT_FALSE);

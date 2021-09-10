@@ -6,22 +6,17 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 03:09:36 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/08 04:00:27 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/11 01:59:54 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "sl_map.h"
 
-t_map	*sl_read_map(int filde)
+void	sl_read_map(int filde, t_map *map)
 {
-	t_map	*map;
 	char	*buf;
 	int		result;
 
-	map = (t_map *)malloc(sizeof(t_map));
-	if (map == NULL)
-		sl_exit_with_error("Memory allocation failed.");
 	map->width = 0;
 	map->raw = ft_lstnew(NULL);
 	result = get_next_line(filde, &buf);
@@ -32,7 +27,6 @@ t_map	*sl_read_map(int filde)
 		ft_lstadd_back(&(map->raw), ft_lstnew((void *)buf));
 		result = get_next_line(filde, &buf);
 	}
-	return (map);
 }
 
 void	sl_validate_map(t_map *map)

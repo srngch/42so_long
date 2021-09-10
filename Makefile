@@ -6,7 +6,7 @@
 #    By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 01:47:18 by sarchoi           #+#    #+#              #
-#    Updated: 2021/08/26 02:58:16 by sarchoi          ###   ########.fr        #
+#    Updated: 2021/09/11 02:09:52 by sarchoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = $(wildcard *.c) $(wildcard get_next_line/*.c) $(wildcard srcs/*.c)
-SRCS_MANDATORY = main.c
-SRCS_BONUS = main_bonus.c \
+SRCS_MANDATORY = srcs/main.c
+SRCS_BONUS = srcs/main_bonus.c \
 	$(wildcard *_bonus.c)
 OBJS = $(SRCS:.c=.o)
 OBJS_MANDATORY = $(SRCS_MANDATORY:.c=.o)
@@ -27,9 +27,12 @@ GCH  = $(wildcard *.gch)
 LIBFT = libft
 LIBFT_FLAGS = -L libft -lft
 
+GNL = get_next_line
+
 MLX = mlx
 MLX_FLAGS = -L mlx -lmlx
-# MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit -lz
+
+INC_FLAGS = -I includes/so_long -I includes -I $(LIBFT) -I $(GNL) -I $(MLX) 
 
 green:=$(shell tput setaf 2)
 reset:=$(shell tput sgr0)
@@ -40,13 +43,14 @@ all:  $(LIBFT) $(MLX) $(NAME)
 test: all
 	$(info )
 	$(info $(green)***********************$(reset))
-	./$(NAME) maps/subject_minimal.ber
+	./$(NAME) maps/square.ber
+# ./$(NAME) maps/subject_minimal.ber
 # $(info $(green)***********************$(reset))
 # ./$(NAME) maps/subject_minimal.txt
 
 debug: $(SRCS) $(SRCS_MANDATORY)
 	$(info $(green)******** debug ********$(reset))
-	$(CC) $(CFLAGS) -g $^ -o $(NAME) $(LIBFT_FLAGS) $(MLX_FLAGS) -I includes -I $(MLX) -I $(LIBFT)
+	$(CC) $(CFLAGS) -g $^ -o $(NAME) $(LIBFT_FLAGS) $(MLX_FLAGS) $(INC_FLAGS)
 	install_name_tool -change libmlx.dylib $(CURDIR)/mlx/libmlx.dylib so_long
 
 $(LIBFT):
@@ -64,7 +68,7 @@ $(NAME): $(OBJS) $(OBJS_MANDATORY)
 
 %.o: %.c
 	$(info $(green)******** $(@) $(<) ********$(reset))
-	$(CC) $(CFLAGS) -c $< -o $@ -I includes -I $(MLX) -I $(LIBFT)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INC_FLAGS)
 
 bonus: $(OBJS) $(OBJS_BONUS)
 	$(info $(green)******** bonus ********$(reset))
