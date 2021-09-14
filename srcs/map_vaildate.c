@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_checkers.c                                     :+:      :+:    :+:   */
+/*   map_vaildate2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 03:09:46 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/11 02:10:24 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/15 03:59:26 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	sl_check_map_letters(t_map	*map)
 		temp_content = raw_p->content;
 		while (*temp_content)
 		{
-			if (is_char_map_letter(*temp_content) == FT_FALSE)
+			if (sl_is_char_map_letter(*temp_content) == FT_FALSE)
 				return (FT_ERROR);
 			temp_content++;
 		}
@@ -61,8 +61,8 @@ int	sl_check_map_walls(t_map *map)
 
 	raw_first_content = map->raw->content;
 	raw_last_content = ft_lstlast(map->raw)->content;
-	if (is_str_map_wall(raw_first_content) == FT_FALSE \
-		|| is_str_map_wall(raw_last_content) == FT_FALSE)
+	if (sl_is_str_map_wall(raw_first_content) == FT_FALSE \
+		|| sl_is_str_map_wall(raw_last_content) == FT_FALSE)
 		return (FT_ERROR);
 	raw_p = map->raw->next;
 	while (raw_p->next != NULL)
@@ -82,10 +82,10 @@ int	sl_check_map_essentials(t_map *map)
 	int	check_collect;
 	int	check_exit;
 
-	check_player = is_char_in_map(map, MAP_PLAYER);
-	check_collect = is_char_in_map(map, MAP_COLLECT);
-	check_exit = is_char_in_map(map, MAP_EXIT);
-	if (!(check_player && check_collect && check_exit))
+	check_player = sl_count_char_in_map(map, MAP_PLAYER);
+	check_collect = sl_count_char_in_map(map, MAP_COLLECT);
+	check_exit = sl_count_char_in_map(map, MAP_EXIT);
+	if (!(check_player == 1 && check_collect >= 1 && check_exit == 1))
 		return (FT_ERROR);
 	return (FT_SUCCESS);
 }

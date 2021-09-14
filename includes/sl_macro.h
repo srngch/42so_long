@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 01:32:54 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/11 01:41:38 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/15 04:53:52 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,17 @@
 # define KEY_A			0
 # define KEY_S			1
 # define KEY_D			2
+// TODO: Add arrow keys
+# define KEY_ARROW_UP		
+# define KEY_ARROW_DOWN		
+# define KEY_ARROW_LEFT		
+# define KEY_ARROW_RIGHT	
 # define X_EVENT_KEY_EXIT	17
 
 /*
 ** map sources
 */
-# define MAP_TILE_SIZE			50
+# define MAP_TILE_SIZE		50
 # define MAP_SRC_PLAYER		'image/player.png'
 # define MAP_SRC_COLLECT	'image/collect.png'
 # define MAP_SRC_WALL		'image/wall.png'

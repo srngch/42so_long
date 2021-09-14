@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 01:27:52 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/11 03:37:05 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/15 04:54:56 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_point
 	int	ypos;
 }				t_point;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void		*img_ptr;
 	int			*addr;

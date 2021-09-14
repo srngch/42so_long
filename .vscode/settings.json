@@ -13,6 +13,7 @@
     "sl_type.h": "c",
     "get_next_line.h": "c",
     "locale": "c",
-    "string": "c"
+    "string": "c",
+    "errno.h": "c"
   }
 }

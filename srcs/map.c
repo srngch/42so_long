@@ -6,13 +6,22 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 03:09:36 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/11 01:59:54 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/15 04:23:34 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	sl_read_map(int filde, t_map *map)
+static void	sl_vaildate_map_file_extension(char *filename)
+{
+	char	*p;
+
+	p = ft_strnstr(filename, ".ber", ft_strlen(filename));
+	if (p == NULL)
+		sl_exit_with_error("Invalid file extension. Extension must be '.ber'.");
+}
+
+static void	sl_read_map(int filde, t_map *map)
 {
 	char	*buf;
 	int		result;
@@ -29,7 +38,7 @@ void	sl_read_map(int filde, t_map *map)
 	}
 }
 
-void	sl_validate_map(t_map *map)
+static void	sl_validate_map(t_map *map)
 {
 	if (sl_check_map_rectangular(map) == FT_ERROR)
 		sl_exit_with_error("Invalid map. The map must be rectangular.");
@@ -39,10 +48,10 @@ void	sl_validate_map(t_map *map)
 		sl_exit_with_error("Invalid map. Maps are not walled up.");
 	if (sl_check_map_essentials(map) == FT_ERROR)
 		sl_exit_with_error("Invalid map. \
-The map must contain a starting point, exit, and collection.");
+The map must contain one of starting point, one of exit, and collections.");
 }
 
-void	sl_raw_to_array_map(t_map *map)
+static void	sl_raw_to_array_map(t_map *map)
 {
 	t_list	*raw_p;
 	int		i;
@@ -53,39 +62,27 @@ void	sl_raw_to_array_map(t_map *map)
 	while (i < map->height)
 	{
 		*((map->array) + i) = (char *)raw_p->content;
-		printf("arr(%d): %s\n", i, *((map->array) + i));
 		i++;
 		raw_p = raw_p->next;
 	}
 }
 
-// TODO: sl_draw_map
-
-void	sl_organize_map(t_map *map)
+void	sl_preparing_map(char *map_filename, t_sl *sl)
 {
-	int		x;
-	int		y;
-	t_bool	found_player;
-	t_bool	found_exit;
+	int		filde;
 
-	found_player = FT_FALSE;
-	found_exit = FT_FALSE;
-	y = 0;
-	while (y < map->height)
+	sl_vaildate_map_file_extension(map_filename);
+	filde = open(map_filename, O_RDONLY);
+	if (filde == FT_ERROR)
+		sl_exit_with_error("Map file not found.");
+	else
 	{
-		x = 0;
-		while (x < map->width)
-		{
-			if (found_player == FT_FALSE && map->array[y][x] == MAP_PLAYER)
-				found_player = FT_TRUE;
-			else if (found_exit == FT_FALSE && map->array[y][x] == MAP_EXIT)
-				found_exit = FT_TRUE;
-			else if (found_player == FT_TRUE && map->array[y][x] == MAP_PLAYER)
-				map->array[y][x] = MAP_EMPTY;
-			else if (found_exit == FT_TRUE && map->array[y][x] == MAP_EXIT)
-				map->array[y][x] = MAP_EMPTY;
-			x++;
-		}
-		y++;
+		sl_read_map(filde, &(sl->map));
+		sl_print_system_message("Completed reading the map file.");
+		sl_validate_map(&(sl->map));
+		sl_print_system_message("Completed validate the map.");
+		sl_raw_to_array_map(&(sl->map));
+		sl_print_system_message("Map");
+		sl_print_map_array(&(sl->map));
 	}
 }
