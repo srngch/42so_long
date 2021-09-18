@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 01:32:54 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/19 02:26:21 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/19 04:16:51 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 /*
 ** keycodes 
 ** ESC: exit 
+** Q: exit 
 ** ARROW KEYS: move player
 ** WASD: move player
+** CLOSE_BUTTON: the red close button at window bar
 ** 
 */
 # define KEY_ESC			53
