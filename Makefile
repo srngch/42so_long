@@ -6,7 +6,7 @@
 #    By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 01:47:18 by sarchoi           #+#    #+#              #
-#    Updated: 2021/09/19 03:34:49 by sarchoi          ###   ########.fr        #
+#    Updated: 2021/09/19 04:09:07 by sarchoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,30 +15,31 @@ NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = srcs/main.c \
-	srcs/input.c srcs/states.c srcs/print_shell.c \
-	srcs/map.c srcs/map_vaildate.c srcs/map_vaildate2.c \
-	srcs/map_utils.c \
-	srcs/graphic_init.c 
-SRCS_MANDATORY = srcs/graphic_draw.c
-SRCS_BONUS = srcs/graphic_draw_bonus.c \
-			srcs/graphic_util_bonus.c
+SRCS = src/main.c \
+	src/input.c src/states.c src/print_shell.c \
+	src/map.c src/map_vaildate.c src/map_vaildate2.c \
+	src/map_utils.c \
+	src/graphic_init.c 
+SRCS_MANDATORY = src/graphic_draw.c
+SRCS_BONUS = src/graphic_draw_bonus.c \
+			src/graphic_util_bonus.c
 OBJS = $(SRCS:.c=.o)
 OBJS_MANDATORY = $(SRCS_MANDATORY:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 LIBFT = libft
-LIBFT_FLAGS = -L libft -lft
+LIBFT_FLAGS = -L libs/libft -lft
 
-SRCS_GNL = get_next_line/get_next_line_utils.c \
-		   get_next_line/get_next_line.c
+SRCS_GNL = libs/get_next_line/get_next_line_utils.c \
+		   libs/get_next_line/get_next_line.c
 OBJS_GNL = $(SRCS_GNL:.c=.o)
 GNL = get_next_line
 
 MLX = mlx
-MLX_FLAGS = -L mlx -lmlx
+MLX_FLAGS = -L libs/mlx -lmlx
 
-INC_FLAGS = -I includes/so_long -I includes -I $(LIBFT) -I $(GNL) -I $(MLX) 
+INC_FLAGS = -I includes/so_long \
+	-I includes -I libs/$(LIBFT) -I libs/$(GNL) -I libs/$(MLX) 
 
 green:=$(shell tput setaf 2)
 reset:=$(shell tput sgr0)
@@ -53,42 +54,41 @@ test: all bonus
 debug: $(SRCS) $(SRCS_MANDATORY) $(SRCS_GNL)
 	$(info $(green)<MAKE> debug$(reset))
 	$(CC) $(CFLAGS) -g $^ -o $(NAME) $(LIBFT_FLAGS) $(MLX_FLAGS) $(INC_FLAGS)
-	install_name_tool -change libmlx.dylib $(CURDIR)/mlx/libmlx.dylib so_long
+	install_name_tool -change libmlx.dylib $(CURDIR)/libs/mlx/libmlx.dylib so_long
 
 $(LIBFT):
-	@make bonus --silent --directory=$(LIBFT)
+	@make bonus --silent --directory=libs/$(LIBFT)
 	$(info $(green)<MAKE>	Libft - make bonus$(reset))
 
 $(MLX):
-	@make --silent --directory=$(MLX)
+	@make --silent --directory=libs/$(MLX)
 	$(info $(green)<MAKE>	MinilibX - make$(reset))
 
-$(NAME): $(OBJS) $(OBJS_MANDATORY) $(OBJS_GNL)
+$(NAME): $(OBJS) $(OBJS_GNL) $(OBJS_MANDATORY) 
 	$(info $(green)<MAKE> NAME$(reset))
 	$(CC) $(CFLAGS) -o $@ $^ $(LIBFT_FLAGS) $(MLX_FLAGS)
-	install_name_tool -change libmlx.dylib $(CURDIR)/mlx/libmlx.dylib so_long
+	install_name_tool -change libmlx.dylib $(CURDIR)/libs/mlx/libmlx.dylib so_long
 
 %.o: %.c
 	$(info $(green)******** $(@) $(<) ********$(reset))
 	$(CC) $(CFLAGS) -c $< -o $@ $(INC_FLAGS)
 
-bonus: $(OBJS) $(OBJS_BONUS) $(OBJS_GNL)
+bonus: $(OBJS) $(OBJS_GNL) $(OBJS_BONUS)
 	$(info $(green)******** bonus ********$(reset))
 	$(CC) $(CFLAGS) -o $(NAME) $^ $(LIBFT_FLAGS) $(MLX_FLAGS)
-	install_name_tool -change libmlx.dylib ./mlx/libmlx.dylib so_long
-	$(info $(green)******** /// ********$(reset))
+	install_name_tool -change libmlx.dylib $(CURDIR)/libs/mlx/libmlx.dylib so_long
 
 clean:
 	$(info $(green)******** clean ********$(reset))
-	@make clean --directory=$(LIBFT)
+	@make clean --directory=libs/$(LIBFT)
 	$(info $(green)*** Libft - clean ***$(reset))
-	@make clean --directory=$(MLX)
+	@make clean --directory=libs/$(MLX)
 	$(info $(green)*** MinilibX - clean ***$(reset))
-	rm -f $(OBJS) $(OBJS_MANDATORY) $(OBJS_BONUS)
+	rm -f $(OBJS) $(OBJS_GNL) $(OBJS_MANDATORY) $(OBJS_BONUS) 
 
 fclean: clean
 	$(info $(green)******** fclean ********$(reset))
-	make fclean --directory=$(LIBFT)
+	make fclean --directory=libs/$(LIBFT)
 	$(info $(green)*** Libft - fclean $(reset))
 	rm -f $(NAME)
 	rm -rf $(NAME).dSYM
