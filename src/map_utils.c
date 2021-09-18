@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 03:09:49 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/15 04:46:37 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/19 04:14:44 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	sl_get_char_in_pos(t_sl *sl, t_point pos)
 	return (sl->map.array[pos.ypos][pos.xpos]);
 }
 
-int		sl_is_possible_move(t_sl *sl, t_point pos_to_move)
+int	sl_is_possible_move(t_sl *sl, t_point pos_to_move)
 {
 	if (sl_get_char_in_pos(sl, pos_to_move) == MAP_WALL)
 		return (FT_FALSE);
