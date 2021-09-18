@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 19:42:35 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/15 04:47:35 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/18 15:40:02 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,15 @@ static void	sl_move_right(t_sl *sl)
 
 int	sl_key_hook(int keycode, t_sl *sl)
 {
-	if (keycode == KEY_W)
+	if (keycode == KEY_W || keycode == KEY_ARROW_UP)
 		sl_move_up(sl);
-	else if (keycode == KEY_S)
+	else if (keycode == KEY_S || keycode == KEY_ARROW_DOWN)
 		sl_move_down(sl);
-	else if (keycode == KEY_A)
+	else if (keycode == KEY_A || keycode == KEY_ARROW_LEFT)
 		sl_move_left(sl);
-	else if (keycode == KEY_D)
+	else if (keycode == KEY_D || keycode == KEY_ARROW_RIGHT)
 		sl_move_right(sl);
-	else if (keycode == KEY_ESC)
+	else if (keycode == KEY_ESC || keycode == KEY_Q)
 		sl_exit(sl);
 	sl_draw_frame(sl);
 	sl_print_counter(sl);

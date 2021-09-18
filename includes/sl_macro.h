@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 01:32:54 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/15 04:53:52 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/19 02:26:21 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,22 @@
 
 /*
 ** keycodes 
+** ESC: exit 
+** ARROW KEYS: move player
+** WASD: move player
+** 
 */
-# define KEY_ESC		53
-// # define KEY_Q			12
-// # define KEY_E			14
-// # define KEY_R			15
-# define KEY_W			13
-# define KEY_A			0
-# define KEY_S			1
-# define KEY_D			2
-// TODO: Add arrow keys
-# define KEY_ARROW_UP		
-# define KEY_ARROW_DOWN		
-# define KEY_ARROW_LEFT		
-# define KEY_ARROW_RIGHT	
-# define X_EVENT_KEY_EXIT	17
+# define KEY_ESC			53
+# define KEY_Q				12
+# define KEY_W				13
+# define KEY_A				0
+# define KEY_S				1
+# define KEY_D				2
+# define KEY_ARROW_UP		126
+# define KEY_ARROW_DOWN		125
+# define KEY_ARROW_LEFT		123
+# define KEY_ARROW_RIGHT	124
+# define CLOSE_BUTTON		17
 
 /*
 ** map sources
@@ -40,6 +41,8 @@
 # define MAP_SRC_WALL		'image/wall.png'
 # define MAP_SRC_EXIT		'image/exit.png'
 # define MAP_COLOR_BG		0x00DFFFF4
+# define MAP_COLOR_TEXT		0x00D9625B
+# define DECIMAL_BASE		"0123456789"
 
 /*
 ** .ber file characters

@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 01:27:52 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/15 04:54:56 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/18 21:15:55 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ typedef struct s_map
 
 typedef struct s_state
 {
-	t_point	player_pos;
-	int		remaining_collect;
-	int		move_count;
-	t_bool	is_gameend;
+	t_point		player_pos;
+	int			remaining_collect;
+	int			move_count;
+	t_bool		is_gameend;
 }				t_state;
 
 typedef struct s_sl

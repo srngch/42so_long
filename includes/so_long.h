@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 01:47:11 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/15 04:47:36 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/19 00:22:47 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int		sl_count_collects(t_map *map);
 */
 void	sl_init_images(t_sl *sl);
 void	sl_draw_frame(t_sl *sl);
+char	*sl_itoa(int nbr, char *buf);
 
 /*
 ** print in shell

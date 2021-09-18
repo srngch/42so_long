@@ -14,6 +14,7 @@
     "get_next_line.h": "c",
     "locale": "c",
     "string": "c",
-    "errno.h": "c"
+    "errno.h": "c",
+    "__locale": "c"
   }
 }

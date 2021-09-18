@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 01:47:23 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/15 04:32:05 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/19 02:31:17 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	so_long(char *map_filename)
 	sl.win = mlx_new_window(sl.mlx, \
 		sl.win_width, sl.win_height, "So Long");
 	sl_init_images(&sl);
-	mlx_key_hook(sl.win, &sl_key_hook, &sl);
 	sl_draw_frame(&sl);
-	mlx_hook(sl.win, X_EVENT_KEY_EXIT, 0, &sl_exit_with_close_button, &sl);
+	mlx_key_hook(sl.win, &sl_key_hook, &sl);
+	mlx_hook(sl.win, CLOSE_BUTTON, 0, &sl_exit_with_close_button, &sl);
 	mlx_loop(sl.mlx);
 }
 
