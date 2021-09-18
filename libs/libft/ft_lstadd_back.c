@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 17:38:29 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/08/05 03:50:00 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/19 04:19:58 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
-	
+
 	last = ft_lstlast(*lst);
 	if (!last)
 		(*lst) = new;

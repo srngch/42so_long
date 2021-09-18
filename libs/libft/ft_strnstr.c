@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 11:58:24 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/05/09 14:50:50 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/19 04:20:43 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	is_same(const char *str, const char *to_find, size_t len)
 	return (0);
 }
 
-char		*ft_strnstr(const char *str, const char *to_find, size_t len)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	if (!*to_find)
 		return ((char *)str);

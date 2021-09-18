@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 14:04:28 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/08 02:06:26 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/19 04:19:02 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,15 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-t_list			*ft_lstmap(
+t_list			*ft_lstmap( \
 	t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 # define FT_SUCCESS		1
 # define FT_ERROR		-1
 # define FT_EOF			0
-# define FT_TRUE		1
-# define FT_FALSE		0
 
 typedef int	t_bool;
+# define FT_TRUE		1
+# define FT_FALSE		0
 
 #endif
