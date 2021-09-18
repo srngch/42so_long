@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 17:13:36 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/05/13 15:08:21 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/19 04:27:43 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,25 @@ static char	*ft_malloc_str(unsigned int len)
 	return (str);
 }
 
+static	void	join_tmp_and_store(char **tmp, char **store)
+{
+	*tmp = ft_strjoin((char const *)*tmp, *store);
+	free(*store);
+	*store = NULL;
+}
+
 static int	ft_read_oneline(int fd, char **tmp, char **store)
 {
 	char	buf[BUFFER_SIZE + 1];
 	int		result;
 	char	*newline_in_tmp;
 
-	while ((result = read(fd, buf, BUFFER_SIZE)) != FT_ERROR)
+	result = read(fd, buf, BUFFER_SIZE);
+	while (result != FT_ERROR)
 	{
 		buf[result] = '\0';
 		if (*store != NULL)
-		{
-			*tmp = ft_strjoin((char const *)*tmp, *store);
-			free(*store);
-			*store = NULL;
-		}
+			join_tmp_and_store(tmp, store);
 		*tmp = ft_strjoin((char const *)*tmp, buf);
 		newline_in_tmp = ft_strchr(*tmp, '\n');
 		if (newline_in_tmp != NULL)
@@ -46,11 +50,12 @@ static int	ft_read_oneline(int fd, char **tmp, char **store)
 		}
 		else if (result == FT_EOF)
 			return (FT_EOF);
+		result = read(fd, buf, BUFFER_SIZE);
 	}
 	return (FT_ERROR);
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	*store[256];
 	char		*tmp;

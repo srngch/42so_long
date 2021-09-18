@@ -6,13 +6,13 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 17:13:50 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/05/13 13:43:57 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/19 04:21:21 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static int		ft_strlen(const char *str)
+static int	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ static size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	return (i);
 }
 
-char			*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	const char	ch = c;
 
@@ -54,7 +54,7 @@ char			*ft_strchr(const char *s, int c)
 	return ((char *)s);
 }
 
-char			*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	s1_len;
 	size_t	s2_len;
@@ -72,7 +72,7 @@ char			*ft_strjoin(char const *s1, char const *s2)
 	return (r);
 }
 
-char			*ft_strdup(char *src)
+char	*ft_strdup(char *src)
 {
 	char			*dup;
 	char			*dup_start;
