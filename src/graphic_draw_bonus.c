@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   graphic_draw.c                                     :+:      :+:    :+:   */
+/*   graphic_draw_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 03:35:31 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/19 00:23:22 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/09/19 15:39:20 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ static void	sl_put_image_with_map_data(\
 		sl_put_image(sl, sl->map.objects.exit, img_pos);
 	else if (map_char == MAP_COLLECT)
 		sl_put_image(sl, sl->map.objects.collect, img_pos);
-	else if (map_char == MAP_PLAYER)
-		sl_put_image(sl, sl->map.objects.player, \
-			&(sl->state.player_pos));
 }
 
 static void	sl_put_object_images(t_sl *sl)
@@ -68,6 +65,8 @@ void	sl_draw_frame(t_sl *sl)
 	mlx_clear_window(sl->mlx, sl->win);
 	sl_put_bg_image(sl);
 	sl_put_object_images(sl);
+	sl_put_image(sl, sl->map.objects.player, \
+		&(sl->state.player_pos));
 	mlx_string_put(sl->mlx, sl->win, 10, 20, MAP_COLOR_TEXT, \
 		sl_itoa(sl->state.move_count, counter_buf));
 }
