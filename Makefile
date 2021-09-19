@@ -6,7 +6,7 @@
 #    By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 01:47:18 by sarchoi           #+#    #+#              #
-#    Updated: 2021/09/19 04:09:07 by sarchoi          ###   ########.fr        #
+#    Updated: 2021/09/19 15:24:21 by sarchoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ all:  $(LIBFT) $(MLX) $(NAME)
 
 test: all bonus
 	$(info $(green)<MAKE> test$(reset))
-	./$(NAME) maps/square.ber
+	./$(NAME) maps/10x10.ber
 
 debug: $(SRCS) $(SRCS_MANDATORY) $(SRCS_GNL)
 	$(info $(green)<MAKE> debug$(reset))
