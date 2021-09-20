@@ -5,7 +5,7 @@
 [![code-size](https://img.shields.io/github/last-commit/srngch/42so_long?style=flat-square)](https://github.com/srngch/42so_long)
 
 <details>
-  <summary><h3 style="display: inline-block">Table of Contents</h3></summary>
+  <summary>Table of Contents</summary>
   <ol>
     <li><a href="#summary">Summary</a></li>
     <li><a href="#project-structure">Project Structure</a></li>
@@ -106,5 +106,5 @@ $ ./so_long maps/10x10.ber
 
 ## Links
 
-- [Subject - 42 intra](https://projects.intra.42.fr/projects/so_long)
-- [Subject - 42seoul Translation](https://github.com/42seoul-translation/subject_ko/blob/master/so_long/so_long_ko.md)
+- [Subject - 42 Intra](https://projects.intra.42.fr/projects/so_long)
+- [Subject - 42Seoul Translation](https://github.com/42seoul-translation/subject_ko/blob/master/so_long/so_long_ko.md)
