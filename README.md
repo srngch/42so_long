@@ -10,15 +10,16 @@
     <li><a href="#summary">Summary</a></li>
     <li><a href="#project-structure">Project Structure</a></li>
     <li><a href="#environment">Environment</a></li>
-    <li><a href="#installation">Installation</a></li>
+    <li><a href="#installation">Compile</a></li>
     <ul>
         <li><a href="#mandatory">Mandatory</a></li>
         <li><a href="#bonus">Bonus</a></li>
 	</ul>
-	<li><a href="#usage">Usage</a></li>
+	<li><a href="#execute">Execute</a></li>
     <ul>
         <li><a href="#controls">Controls</a></li>
 	</ul>
+	<li><a href="#example">Example</a></li>
 	<li><a href="#links">Links</a></li>
   </ol>
 </details>
@@ -62,11 +63,11 @@ textures, sprites. And some very basic gameplay elements.
 
 Developed and tested in this environment.
 
-## Installation
+## Compile
 
 ### Mandatory
 
-To use only the mandatory version, run only the lines below.
+To compile the mandatory version, run the lines below.
 
 ```shell
 $ git clone https://github.com/srngch/42so_long
@@ -75,17 +76,17 @@ $ make all
 
 ### Bonus
 
-_Movement count is displayed on the game screen._
+- [x] Movement count is displayed on the game screen.
 
-To use the bonus version, run additional lines below.
+To compile the bonus version, run the `Mandatory` part above then run the following additional lines.
 
 ```shell
 $ make bonus
 ```
 
-## Usage
+## Execute
 
-Run it in the root folder.
+Run compiled executable file in the root folder.
 
 ```shell
 $ ./so_long [map_filename]
