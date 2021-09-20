@@ -12,3 +12,5 @@ Icon
 *.swp
 *.o
 *.gch
+
+.vscode
