@@ -91,13 +91,17 @@ Run it in the root folder.
 $ ./so_long [map_filename]
 
 # example
-$ ./so_long maps/subject_minimal.ber
+$ ./so_long maps/10x10.ber
 ```
 
 ### Controls
 
 - `ESC` or `Q` to exit a game
 - `ARROW KEYS` or `WASD` to move
+
+## Example
+
+![capture](./capture.png)
 
 ## Links
 
