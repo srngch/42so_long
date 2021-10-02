@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 19:25:42 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/18 18:17:46 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/10/03 00:20:46 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ void	sl_exit(t_sl *sl)
 
 int	sl_exit_with_error(char *message)
 {
+	ft_putstr_fd(RED, STDIN_FILENO);
 	ft_putstr_fd("<ERROR> ", STDIN_FILENO);
-	perror(message);
+	ft_putstr_fd(message, STDIN_FILENO);
+	ft_putstr_fd("\n", STDIN_FILENO);
+	ft_putstr_fd(RESET, STDIN_FILENO);
 	exit(EXIT_FAILURE);
 }
 
@@ -45,6 +48,8 @@ int	sl_exit_with_close_button(t_sl *sl)
 
 void	sl_the_end(t_sl *sl)
 {
+	ft_putstr_fd(BLUE, STDIN_FILENO);
 	sl_print_system_message("Congratulations! Game End.");
+	ft_putstr_fd(RESET, STDIN_FILENO);
 	sl_exit(sl);
 }

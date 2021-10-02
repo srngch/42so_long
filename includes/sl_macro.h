@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/11 01:32:54 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/19 04:16:51 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/10/03 00:04:20 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,16 @@
 # define MAP_EMPTY		'0'
 # define MAP_WALL		'1'
 # define MAP_EXIT		'E'
+
+/*
+** ANSI Color Codes
+*/
+# define RED			"\x1b[31m"
+# define GREEN			"\x1b[32m"
+# define BLUE			"\x1b[34m"
+# define YELLOW			"\x1b[33m"
+# define MAGENTA		"\x1b[35m"
+# define CYAN			"\x1b[36m"
+# define RESET			"\x1b[0m"
 
 #endif
