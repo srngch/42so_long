@@ -6,7 +6,7 @@
 /*   By: sarchoi <sarchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 01:47:23 by sarchoi           #+#    #+#             */
-/*   Updated: 2021/09/19 15:21:36 by sarchoi          ###   ########.fr       */
+/*   Updated: 2021/10/02 22:45:32 by sarchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ int	main(int argc, char *argv[])
 	if (argc == 2)
 		so_long(argv[1]);
 	else
+	{
 		perror("Invalid number of arguments.");
+		exit(EXIT_FAILURE);
+	}
 	return (0);
 }
