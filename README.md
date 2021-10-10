@@ -49,7 +49,7 @@ textures, sprites. And some very basic gameplay elements.
 ```shell
 ./
 ├── libs		# libraries: libft, MinilibX, Get-Next-Line
-├── includes 	# c header files
+├── includes		# c header files
 ├── src			# c source files
 ├── image		# game textures
 ├── maps		# game maps
